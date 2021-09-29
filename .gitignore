@@ -31,6 +31,8 @@
 *.out
 *.app
 
+# Exclude Driver.cpp (don't want it on the main branch)
+Driver.cpp
 # Visual Studio Generated Files
 *.vs
 *.user
