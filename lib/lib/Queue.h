@@ -1,9 +1,9 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#define TEMP template<class T> 
+#define TEMPLATE template<class T> 
 
-TEMP 
+TEMPLATE 
 class QueueNode{
     T data;
     QueueNode<T>* next;
@@ -20,7 +20,7 @@ class QueueNode{
 };
 
 
-TEMP
+TEMPLATE
 class Queue{
     int size;
     QueueNode<T>* head;

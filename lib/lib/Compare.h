@@ -1,11 +1,11 @@
 #ifndef COMP_H
 #define COMP_H
 
-#define TEMP template <class T>
+#define TEMPLATE template <class T>
 
 using namespace std;
 
-TEMP
+TEMPLATE
 class Compare {
     public:
         static int compare(T,T);
@@ -13,12 +13,12 @@ class Compare {
 
 };
 
-TEMP
+TEMPLATE
 bool Compare<T>::equals(T obj1, T obj2){
     return compare(obj1,obj2) == 0;
 }
 
-TEMP
+TEMPLATE
 int Compare<T>::compare(T obj1, T obj2){
     try{
         cout << "COMPARING GENERICS\n";

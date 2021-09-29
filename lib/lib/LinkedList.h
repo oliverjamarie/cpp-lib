@@ -1,7 +1,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#define TEMP template <class T>
+#define TEMPLATE template <class T>
 
 
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace std;
 // in the header file  
 
 
-TEMP
+TEMPLATE
 class LinkedListNode{
     public:
         LinkedListNode(T data_in){
@@ -43,7 +43,7 @@ class LinkedListNode{
 
 
 
-TEMP
+TEMPLATE
 class LinkedList{
     public:
         //Constructors
@@ -82,13 +82,13 @@ class LinkedList{
 
 };
 
-TEMP
+TEMPLATE
 LinkedList<T>::LinkedList(){
     head = NULL;
     size = 0;
 }
 
-TEMP 
+TEMPLATE 
 void LinkedList<T>::sort(){
     vector<T> set = convertToVector();
     
@@ -111,7 +111,7 @@ void LinkedList<T>::sort(){
     append(set);
 }
 
-TEMP
+TEMPLATE
 vector<T> LinkedList<T>::convertToVector(){
     vector<T> set;
     LinkedListNode<T>* curr = head;
@@ -124,7 +124,7 @@ vector<T> LinkedList<T>::convertToVector(){
     return set;
 }
 
-TEMP 
+TEMPLATE 
 void LinkedList<T>::clear(){
     LinkedListNode<T>* prev;
     LinkedListNode<T>* curr ;
@@ -146,20 +146,20 @@ void LinkedList<T>::clear(){
     head = NULL;
 }
 
-TEMP
+TEMPLATE
 LinkedList<T>::LinkedList(T data_in){
     head = new LinkedListNode<T>(data_in);
     size = 0;
 }
 
-TEMP
+TEMPLATE
 LinkedList<T>::LinkedList(LinkedListNode<T>* node){
     size = 1;
     head = node;
 }
 
 // adds data to the end of the list
-TEMP
+TEMPLATE
 bool LinkedList<T>::append(T data_in){
     LinkedListNode<T>* curr;
 
@@ -181,7 +181,7 @@ bool LinkedList<T>::append(T data_in){
     return true;
 }
 
-TEMP
+TEMPLATE
 bool LinkedList<T>::append(vector<T> set){
     for (T i : set){
         if (append(i) == false){
@@ -194,7 +194,7 @@ bool LinkedList<T>::append(vector<T> set){
 
 // Searches for node holding specified data in the list and returns it
 // Returns null if not found
-TEMP 
+TEMPLATE 
 LinkedListNode<T>* LinkedList<T>::find(T data){
     LinkedListNode<T>* curr = head;
     //Compare<T> comp;
@@ -213,7 +213,7 @@ LinkedListNode<T>* LinkedList<T>::find(T data){
 
 // returns the index of the node holding the specified data
 // returns -1 if it isn't found
-TEMP 
+TEMPLATE 
 int LinkedList<T>::index(T data){
     int index = 0;
     LinkedListNode<T>* curr = head;
@@ -234,7 +234,7 @@ int LinkedList<T>::index(T data){
 
 // removes the node holding the specified data from the list
 // returns false if the node isn't found
-TEMP
+TEMPLATE
 bool LinkedList<T>::remove(T data_in){
     LinkedListNode<T>* curr = head,*prev = head;
     //Compare<T> comp;

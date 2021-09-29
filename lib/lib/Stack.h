@@ -1,13 +1,13 @@
 #ifndef STACK_H
 #define STACK_H
 
- #define TEMP template<class T>
+ #define TEMPLATE template<class T>
 
 // Because we're working with templates and templates are 
 // translated before compile time, we implement their code here 
 // in the header file 
 
-TEMP
+TEMPLATE
 class StackNode{
     private:
         // Variables
@@ -35,7 +35,7 @@ class StackNode{
     template <class U> friend class Stack;
 };
 
-TEMP
+TEMPLATE
 class Stack{
     private:
         StackNode<T>* head;

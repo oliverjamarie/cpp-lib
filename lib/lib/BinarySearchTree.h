@@ -2,7 +2,7 @@
 #define BST_H
 
 
-#define TEMP template <class T>
+#define TEMPLATE template <class T>
 
 #include <iostream>
 #include <exception>
@@ -16,7 +16,7 @@ using namespace std;
 // translated before compile time, we implement their code here 
 // in the header file  
 
-TEMP
+TEMPLATE
 class BSTNode {
     private:
         T data;
@@ -42,12 +42,12 @@ class BSTNode {
     template <class U> friend class BinarySearchTree;
 };
 
-TEMP
+TEMPLATE
 void BSTNode<T>::displayNode(){
     cout << data <<endl;
 }
 
-TEMP
+TEMPLATE
 class BinarySearchTree {
     private:
         // Functions
@@ -110,13 +110,13 @@ class BinarySearchTree {
         
 };
 // Shallow copy of other tree (only copies the root node)
-TEMP
+TEMPLATE
 BinarySearchTree<T>::BinarySearchTree(const BinarySearchTree<T> &other){
     root = new BSTNode<T>(*other.root);
     size = other.size;
 }
 
-TEMP
+TEMPLATE
 bool BinarySearchTree<T>:: insert(T data_in){
     if (root == NULL){
         root = new BSTNode<T>(data_in);
@@ -126,7 +126,7 @@ bool BinarySearchTree<T>:: insert(T data_in){
     return insertIntoTree(data_in,root);
 }
 
-TEMP 
+TEMPLATE 
 bool BinarySearchTree<T>::insertIntoTree(T data_in, BSTNode<T>* parent){
 
     if (Compare<T>::compare(data_in,parent->data) <= 0){
@@ -150,7 +150,7 @@ bool BinarySearchTree<T>::insertIntoTree(T data_in, BSTNode<T>* parent){
 
 // Doesn't create the shortest tree possible,
 
-TEMP 
+TEMPLATE 
 bool BinarySearchTree<T>::balance(){
     vector<T> set = getTreeInc();
     int setSize,
@@ -170,12 +170,12 @@ bool BinarySearchTree<T>::balance(){
     return true;
 }
 
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::clear(){
     clear(root);
 }
 
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::clear(BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -190,7 +190,7 @@ void BinarySearchTree<T>::clear(BSTNode<T>* node){
 // mode 0   ==> display tree in increasing order
 // mode 1   ==> display tree in decreasing order
 // mode 2   ==> display tree in traversal order
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::display(int mode){
     if (root != NULL){
         if (mode == 0){
@@ -216,7 +216,7 @@ void BinarySearchTree<T>::display(int mode){
     
 }
 
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::displayTreeIncOrder(BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -226,7 +226,7 @@ void BinarySearchTree<T>::displayTreeIncOrder(BSTNode<T>* node){
     displayTreeIncOrder(node->right);
 }
 
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::displayTreeDecOrder(BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -236,7 +236,7 @@ void BinarySearchTree<T>::displayTreeDecOrder(BSTNode<T>* node){
     displayTreeDecOrder(node->left);
 }
 
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::displayTreeTraversOrder(BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -249,14 +249,14 @@ void BinarySearchTree<T>::displayTreeTraversOrder(BSTNode<T>* node){
 
 
 // returns a vector of the tree in increasing order
-TEMP
+TEMPLATE
 vector<T> BinarySearchTree<T>::getTreeInc(){
     vector<T> set;
     getTreeInc(set,root);
     return set;
 }
 
-TEMP 
+TEMPLATE 
 void BinarySearchTree<T>::getTreeInc(vector<T> &set, BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -267,14 +267,14 @@ void BinarySearchTree<T>::getTreeInc(vector<T> &set, BSTNode<T>* node){
 }
 
 // returns a vector of the tree in decreasing order
-TEMP
+TEMPLATE
 vector<T> BinarySearchTree<T>::getTreeDec(){
     vector<T> set;
     getTreeDec(set,root);
     return set;
 }
 
-TEMP 
+TEMPLATE 
 void BinarySearchTree<T>::getTreeDec(vector<T> &set, BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -284,14 +284,14 @@ void BinarySearchTree<T>::getTreeDec(vector<T> &set, BSTNode<T>* node){
     getTreeInc(set,node->left);
 }
 
-TEMP
+TEMPLATE
 vector<T> BinarySearchTree<T>::getTreeTrav(){
     vector<T> set;
     getTreeTrav(set,root);
     return set;
 }
 
-TEMP 
+TEMPLATE 
 void BinarySearchTree<T>::getTreeTrav(vector<T> &set, BSTNode<T>* node){
     if (node == NULL){
         return;
@@ -303,7 +303,7 @@ void BinarySearchTree<T>::getTreeTrav(vector<T> &set, BSTNode<T>* node){
 }
 
 
-TEMP
+TEMPLATE
 BSTNode<T>* BinarySearchTree<T>::find(T data_in, BSTNode<T>* node){
     //Compare<T> comp;
 
@@ -323,7 +323,7 @@ BSTNode<T>* BinarySearchTree<T>::find(T data_in, BSTNode<T>* node){
 }
 
 
-TEMP 
+TEMPLATE 
 bool BinarySearchTree<T>:: removeRoot(){
     if (root == NULL){
         return false;
@@ -349,7 +349,7 @@ bool BinarySearchTree<T>:: removeRoot(){
 
 //  To implement,
 //      destructor
-TEMP
+TEMPLATE
 void BinarySearchTree<T>::remove(T data_in){
     if (Compare<T>::compare(data_in,root->data) == 0){
         removeRoot();
@@ -359,7 +359,7 @@ void BinarySearchTree<T>::remove(T data_in){
     }
 }
 
-TEMP
+TEMPLATE
 BSTNode<T>* BinarySearchTree<T>::deleteNode(T data_in, BSTNode<T>* node){
    //BSTNode<T>* temp;
 
@@ -396,7 +396,7 @@ BSTNode<T>* BinarySearchTree<T>::deleteNode(T data_in, BSTNode<T>* node){
 
 
 // Returns the smallest child of node 
-TEMP
+TEMPLATE
 BSTNode<T>* BinarySearchTree<T>:: findMin(BSTNode<T>* node){
     BSTNode<T>* curr = node;
 
@@ -408,7 +408,7 @@ BSTNode<T>* BinarySearchTree<T>:: findMin(BSTNode<T>* node){
 }
 
 // Returns the largest child of node
-TEMP 
+TEMPLATE 
 BSTNode<T>* BinarySearchTree<T>::findMax(BSTNode<T>* node){
     BSTNode<T>* curr = node;
 
