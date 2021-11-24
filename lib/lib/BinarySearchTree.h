@@ -1,7 +1,6 @@
 #ifndef BST_H
 #define BST_H
 
-
 #define TEMPLATE template <class T>
 
 #include <iostream>
@@ -116,6 +115,8 @@ BinarySearchTree<T>::BinarySearchTree(const BinarySearchTree<T> &other){
     size = other.size;
 }
 
+// Inserts a piece of data into tree
+// Depends on insertIntoTree(T, BSTNode<T>* )
 TEMPLATE
 bool BinarySearchTree<T>:: insert(T data_in){
     if (root == NULL){
@@ -126,6 +127,8 @@ bool BinarySearchTree<T>:: insert(T data_in){
     return insertIntoTree(data_in,root);
 }
 
+// Helper method for insert(T) 
+// 
 TEMPLATE 
 bool BinarySearchTree<T>::insertIntoTree(T data_in, BSTNode<T>* parent){
 
