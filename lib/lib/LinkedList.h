@@ -1,6 +1,4 @@
-#ifndef LINKED_LIST_H
-#define LINKED_LIST_H
-
+#pragma once
 #define TEMPLATE template <class T>
 
 
@@ -10,9 +8,9 @@
 #include "Compare.h"
 using namespace std;
 
-// Because we're working with templates and templates are 
-// translated before compile time, we implement their code here 
-// in the header file  
+// Because we're working with templates and templates are
+// translated before compile time, we implement their code here
+// in the header file
 
 
 TEMPLATE
@@ -88,10 +86,10 @@ LinkedList<T>::LinkedList(){
     size = 0;
 }
 
-TEMPLATE 
+TEMPLATE
 void LinkedList<T>::sort(){
     vector<T> set = convertToVector();
-    
+
     clear();
 
 
@@ -124,7 +122,7 @@ vector<T> LinkedList<T>::convertToVector(){
     return set;
 }
 
-TEMPLATE 
+TEMPLATE
 void LinkedList<T>::clear(){
     LinkedListNode<T>* prev;
     LinkedListNode<T>* curr ;
@@ -194,7 +192,7 @@ bool LinkedList<T>::append(vector<T> set){
 
 // Searches for node holding specified data in the list and returns it
 // Returns null if not found
-TEMPLATE 
+TEMPLATE
 LinkedListNode<T>* LinkedList<T>::find(T data){
     LinkedListNode<T>* curr = head;
     //Compare<T> comp;
@@ -202,10 +200,10 @@ LinkedListNode<T>* LinkedList<T>::find(T data){
     while (curr != NULL){
         if (Compare<T>::compare(curr->data,data) == 0){
             return curr;
-        } 
+        }
         else {
             curr = curr->next;
-        }                 
+        }
     }
 
     return curr;
@@ -213,7 +211,7 @@ LinkedListNode<T>* LinkedList<T>::find(T data){
 
 // returns the index of the node holding the specified data
 // returns -1 if it isn't found
-TEMPLATE 
+TEMPLATE
 int LinkedList<T>::index(T data){
     int index = 0;
     LinkedListNode<T>* curr = head;
@@ -260,5 +258,3 @@ bool LinkedList<T>::remove(T data_in){
 
     return false;
 }
-
-#endif 

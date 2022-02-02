@@ -1,6 +1,4 @@
-#ifndef COMP_H
-#define COMP_H
-
+#pragma once
 #define TEMPLATE template <class T>
 
 using namespace std;
@@ -75,6 +73,3 @@ int Compare<char>::compare(char char1, char char2){
     }
     return 1;
 }
-
-
-#endif

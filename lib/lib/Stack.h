@@ -1,11 +1,9 @@
-#ifndef STACK_H
-#define STACK_H
-
+#pragma once
  #define TEMPLATE template<class T>
 
-// Because we're working with templates and templates are 
-// translated before compile time, we implement their code here 
-// in the header file 
+// Because we're working with templates and templates are
+// translated before compile time, we implement their code here
+// in the header file
 
 TEMPLATE
 class StackNode{
@@ -15,7 +13,7 @@ class StackNode{
         StackNode<T>* next;
 
         // Functions
-        
+
 
     public:
         // Constructors
@@ -62,13 +60,13 @@ class Stack{
             head = node;
 
         }
-        
+
         T* peek (){
             if (head == NULL){
                 return NULL;
             }
 
-            
+
             return &(head->data);
         }
 
@@ -81,7 +79,7 @@ class Stack{
             }
 
             node = head;
-            
+
             data = *(peek());
 
             head = head->next;
@@ -98,11 +96,5 @@ class Stack{
 
 
 
-        
+
 };
-
-
-
-
-
-#endif

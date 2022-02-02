@@ -1,9 +1,7 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#pragma once
+#define TEMPLATE template<class T>
 
-#define TEMPLATE template<class T> 
-
-TEMPLATE 
+TEMPLATE
 class QueueNode{
     T data;
     QueueNode<T>* next;
@@ -34,7 +32,7 @@ class Queue{
         }
         Queue(T data){
             size = 0;
-            head = NULL; 
+            head = NULL;
             push(data);
         }
 
@@ -51,11 +49,11 @@ class Queue{
 
             curr = head;
 
-            while (curr->next != NULL) 
+            while (curr->next != NULL)
             {
                 curr = curr->next;
             }
-            
+
             curr->next = node;
             tail = node;
         }
@@ -79,9 +77,7 @@ class Queue{
             head = head->next;
 
             delete temp;
-            
+
             return &(node->data);
         }
 };
-
-#endif
